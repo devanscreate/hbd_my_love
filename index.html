@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Happy Birthday My Love 💖</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@300;400;600;700&display=swap");
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Quicksand", sans-serif;
+        background: linear-gradient(
+          135deg,
+          #ffeef8 0%,
+          #ffe5f1 50%,
+          #ffd6eb 100%
+        );
+        color: #ff69b4;
+        overflow-x: hidden;
+        position: relative;
+      }
+
+      /* Floating Hearts Background */
+      .floating-hearts {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 1;
+      }
+
+      .heart-float {
+        position: absolute;
+        font-size: 30px;
+        opacity: 0.6;
+        animation: float-up 8s infinite ease-in;
+      }
+
+      @keyframes float-up {
+        0% {
+          transform: translateY(100vh) rotate(0deg);
+          opacity: 0;
+        }
+        50% {
+          opacity: 0.6;
+        }
+        100% {
+          transform: translateY(-100px) rotate(360deg);
+          opacity: 0;
+        }
+      }
+
+      .container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 20px;
+        position: relative;
+        z-index: 2;
+      }
+
+      /* Intro Screen */
+      #intro-screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: linear-gradient(
+          135deg,
+          #ff9a9e 0%,
+          #fecfef 50%,
+          #ffecd2 100%
+        );
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+        transition: opacity 1s ease, transform 1s ease;
+      }
+
+      #intro-screen.hidden {
+        opacity: 0;
+        transform: scale(1.2);
+        pointer-events: none;
+      }
+
+      .cute-envelope {
+        position: relative;
+        width: 200px;
+        height: 140px;
+        cursor: pointer;
+        transition: transform 0.3s;
+      }
+
+      .cute-envelope:hover {
+        transform: scale(1.1);
+      }
+
+      .envelope-body {
+        width: 200px;
+        height: 120px;
+        background: #ffb3d9;
+        border-radius: 10px;
+        position: relative;
+        box-shadow: 0 10px 30px rgba(255, 105, 180, 0.3);
+      }
+
+      .envelope-flap {
+        width: 0;
+        height: 0;
+        border-left: 100px solid transparent;
+        border-right: 100px solid transparent;
+        border-bottom: 80px solid #ff69b4;
+        position: absolute;
+        top: -60px;
+        left: 0;
+        transform-origin: top;
+        animation: flap-move 2s infinite;
+      }
+
+      @keyframes flap-move {
+        0%,
+        100% {
+          transform: rotateX(0deg);
+        }
+        50% {
+          transform: rotateX(-20deg);
+        }
+      }
+
+      .envelope-heart {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 50px;
+        animation: pulse-heart 1.5s infinite;
+      }
+
+      @keyframes pulse-heart {
+        0%,
+        100% {
+          transform: translate(-50%, -50%) scale(1);
+        }
+        50% {
+          transform: translate(-50%, -50%) scale(1.2);
+        }
+      }
+
+      .intro-message {
+        font-family: "Pacifico", cursive;
+        font-size: 28px;
+        margin-top: 40px;
+        color: #ff1493;
+        text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5);
+        animation: bounce-text 2s infinite;
+      }
+
+      @keyframes bounce-text {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+
+      /* Main Content */
+      #main-content {
+        opacity: 0;
+        transition: opacity 1.5s ease;
+        padding-top: 30px;
+      }
+
+      #main-content.visible {
+        opacity: 1;
+      }
+
+      .section {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 60px 20px;
+      }
+
+      .cute-title {
+        font-family: "Pacifico", cursive;
+        font-size: 3.5em;
+        color: #ff1493;
+        text-align: center;
+        margin-bottom: 30px;
+        text-shadow: 3px 3px 0px #ffb3d9, 6px 6px 0px #ffd6eb;
+        animation: title-bounce 2s infinite;
+      }
+
+      @keyframes title-bounce {
+        0%,
+        100% {
+          transform: translateY(0) rotate(-2deg);
+        }
+        50% {
+          transform: translateY(-10px) rotate(2deg);
+        }
+      }
+
+      .kawaii-card {
+        background: white;
+        border-radius: 30px;
+        padding: 40px;
+        margin: 20px 0;
+        box-shadow: 0 15px 40px rgba(255, 105, 180, 0.2);
+        border: 5px solid #ffb3d9;
+        position: relative;
+        max-width: 600px;
+        animation: card-appear 1s ease;
+      }
+
+      @keyframes card-appear {
+        from {
+          opacity: 0;
+          transform: scale(0.8) rotate(-5deg);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1) rotate(0deg);
+        }
+      }
+
+      .kawaii-card::before {
+        content: "🎀";
+        position: absolute;
+        top: -20px;
+        right: 30px;
+        font-size: 40px;
+      }
+
+      .kawaii-card p {
+        font-size: 1.3em;
+        line-height: 1.8;
+        color: #ff69b4;
+        margin: 15px 0;
+        font-weight: 500;
+      }
+
+      .subtitle {
+        font-family: "Pacifico", cursive;
+        font-size: 2.2em;
+        color: #ff1493;
+        margin: 30px 0;
+        text-shadow: 2px 2px 0px #ffb3d9;
+      }
+
+      /* Cute Reasons List */
+      .reasons-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 25px;
+        width: 100%;
+        max-width: 800px;
+        margin: 30px 0;
+      }
+
+      .reason-bubble {
+        background: white;
+        padding: 25px;
+        border-radius: 25px;
+        border: 4px solid #ffb3d9;
+        box-shadow: 0 10px 25px rgba(255, 105, 180, 0.15);
+        position: relative;
+        animation: bubble-pop 0.6s ease forwards;
+        opacity: 0;
+        transform: scale(0);
+      }
+
+      .reason-bubble:nth-child(1) {
+        animation-delay: 0.1s;
+      }
+      .reason-bubble:nth-child(2) {
+        animation-delay: 0.2s;
+      }
+      .reason-bubble:nth-child(3) {
+        animation-delay: 0.3s;
+      }
+      .reason-bubble:nth-child(4) {
+        animation-delay: 0.4s;
+      }
+      .reason-bubble:nth-child(5) {
+        animation-delay: 0.5s;
+      }
+      .reason-bubble:nth-child(6) {
+        animation-delay: 0.6s;
+      }
+
+      @keyframes bubble-pop {
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      .reason-bubble .emoji {
+        font-size: 40px;
+        margin-bottom: 10px;
+        display: block;
+      }
+
+      .reason-bubble p {
+        color: #ff69b4;
+        font-size: 1em;
+        font-weight: 600;
+      }
+
+      /* Photo Gallery Cute */
+      .photo-gallery {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        margin: 30px 0;
+        max-width: 600px;
+      }
+
+      .photo-frame {
+        background: white;
+        padding: 15px;
+        border-radius: 20px;
+        border: 5px solid #ffb3d9;
+        box-shadow: 0 10px 30px rgba(255, 105, 180, 0.2);
+        transition: transform 0.3s;
+        cursor: pointer;
+      }
+
+      .photo-frame:hover {
+        transform: rotate(-5deg) scale(1.05);
+      }
+
+      .photo-content {
+        background: linear-gradient(135deg, #ffe5f1, #ffd6eb);
+        height: 180px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 50px;
+      }
+
+      /* Cute Button */
+      .cute-button {
+        background: linear-gradient(135deg, #ff9a9e, #ff6b9d);
+        color: white;
+        border: none;
+        padding: 20px 50px;
+        font-size: 1.4em;
+        font-weight: 700;
+        border-radius: 50px;
+        cursor: pointer;
+        box-shadow: 0 10px 30px rgba(255, 105, 180, 0.4);
+        transition: all 0.3s;
+        margin: 20px;
+        font-family: "Quicksand", sans-serif;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .cute-button:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 40px rgba(255, 105, 180, 0.6);
+      }
+
+      .cute-button::before {
+        content: "✨";
+        position: absolute;
+        left: 20px;
+      }
+
+      .cute-button::after {
+        content: "✨";
+        position: absolute;
+        right: 20px;
+      }
+
+      /* Message Box */
+      .message-box {
+        background: white;
+        padding: 40px;
+        border-radius: 30px;
+        border: 5px dashed #ffb3d9;
+        max-width: 600px;
+        margin: 30px 0;
+        display: none;
+        animation: message-appear 0.8s ease;
+      }
+
+      .message-box.visible {
+        display: block;
+      }
+
+      @keyframes message-appear {
+        from {
+          opacity: 0;
+          transform: scale(0.5) rotate(-10deg);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1) rotate(0deg);
+        }
+      }
+
+      .message-box .emoji-row {
+        font-size: 30px;
+        margin: 10px 0;
+      }
+
+      .message-box p {
+        color: #ff69b4;
+        font-size: 1.2em;
+        margin: 15px 0;
+        font-weight: 600;
+      }
+
+      /* Final Section */
+      .final-card {
+        background: linear-gradient(135deg, #ffffff, #ffe5f1);
+        padding: 50px;
+        border-radius: 40px;
+        border: 6px solid #ff69b4;
+        box-shadow: 0 20px 60px rgba(255, 105, 180, 0.3);
+        max-width: 700px;
+        text-align: center;
+      }
+
+      .final-card h2 {
+        font-family: "Pacifico", cursive;
+        font-size: 2.5em;
+        color: #ff1493;
+        margin-bottom: 30px;
+      }
+
+      .final-card p {
+        color: #ff69b4;
+        font-size: 1.3em;
+        line-height: 2;
+        font-weight: 600;
+      }
+
+      .big-heart {
+        font-size: 80px;
+        animation: big-heart-beat 1.5s infinite;
+      }
+
+      @keyframes big-heart-beat {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        25%,
+        75% {
+          transform: scale(1.1);
+        }
+        50% {
+          transform: scale(0.95);
+        }
+      }
+
+      /* Sparkles */
+      .sparkle {
+        position: absolute;
+        font-size: 20px;
+        animation: sparkle 2s infinite;
+      }
+
+      @keyframes sparkle {
+        0%,
+        100% {
+          opacity: 0;
+          transform: scale(0);
+        }
+        50% {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      @media (max-width: 768px) {
+        .cute-title {
+          font-size: 2.5em;
+        }
+        .subtitle {
+          font-size: 1.8em;
+        }
+        .kawaii-card {
+          padding: 25px;
+        }
+        .reasons-grid {
+          grid-template-columns: 1fr;
+        }
+        .photo-gallery {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Floating Hearts -->
+    <div class="floating-hearts" id="floating-hearts"></div>
+
+    <!-- Intro Screen -->
+    <div id="intro-screen">
+      <div class="cute-envelope" onclick="openEnvelope()">
+        <div class="envelope-flap"></div>
+        <div class="envelope-body">
+          <div class="envelope-heart">💌</div>
+        </div>
+      </div>
+      <div class="intro-message">Klik untuk membuka suratku! 💕</div>
+    </div>
+
+    <!-- Main Content -->
+    <div id="main-content">
+      <div class="container">
+        <!-- Section 1: Main Title -->
+        <section class="section">
+          <div class="sparkle" style="top: 10%; left: 10%">✨</div>
+          <div
+            class="sparkle"
+            style="top: 15%; right: 15%; animation-delay: 0.5s"
+          >
+            ⭐
+          </div>
+          <div
+            class="sparkle"
+            style="bottom: 20%; left: 20%; animation-delay: 1s"
+          >
+            💫
+          </div>
+          <div
+            class="sparkle"
+            style="bottom: 15%; right: 10%; animation-delay: 1.5s"
+          >
+            ✨
+          </div>
+
+          <h1 class="cute-title">Happy Birthday<br />My Princess! 👑</h1>
+          <div class="kawaii-card">
+            <p>🎂 Hari ini adalah hari paling spesial...</p>
+            <p>🌸 Karena hari ini dunia mendapatkan malaikat termanis...</p>
+            <p>💖 Dan aku mendapatkan alasan untuk bahagia setiap hari...</p>
+            <p><strong>🎀 Selamat ulang tahun, cinta hidupku! 🎀</strong></p>
+          </div>
+        </section>
+
+        <!-- Section 2: Reasons -->
+        <section class="section">
+          <h2 class="subtitle">Kenapa Aku Sayang Banget Sama Kamu 💕</h2>
+          <div class="reasons-grid">
+            <div class="reason-bubble">
+              <span class="emoji">😊</span>
+              <p>
+                Senyum kamu yang bikin hati aku meleleh setiap kali lihatnya
+              </p>
+            </div>
+            <div class="reason-bubble">
+              <span class="emoji">🌟</span>
+              <p>Kamu selalu jadi cahaya di hari-hari gelapku</p>
+            </div>
+            <div class="reason-bubble">
+              <span class="emoji">🎵</span>
+              <p>Tawa kamu yang jadi lagu favorit aku setiap hari</p>
+            </div>
+            <div class="reason-bubble">
+              <span class="emoji">🤗</span>
+              <p>Pelukan hangat kamu yang bikin semuanya jadi lebih baik</p>
+            </div>
+            <div class="reason-bubble">
+              <span class="emoji">💝</span>
+              <p>Kebaikan hati kamu yang nggak ada duanya</p>
+            </div>
+            <div class="reason-bubble">
+              <span class="emoji">✨</span>
+              <p>Kamu bikin aku pengen jadi orang yang lebih baik</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 3: Memories -->
+        <section class="section">
+          <h2 class="subtitle">Kenangan Manis Kita 📷</h2>
+          <p
+            style="
+              font-size: 1.2em;
+              color: #ff69b4;
+              margin-bottom: 20px;
+              font-weight: 600;
+            "
+          >
+            Setiap momen bersamamu adalah kenangan terindah 💕
+          </p>
+          <div class="photo-gallery">
+            <div class="photo-frame">
+              <div class="photo-content">🌈</div>
+            </div>
+            <div class="photo-frame">
+              <div class="photo-content">💑</div>
+            </div>
+            <div class="photo-frame">
+              <div class="photo-content">🎡</div>
+            </div>
+            <div class="photo-frame">
+              <div class="photo-content">🌺</div>
+            </div>
+          </div>
+          <p
+            style="
+              font-size: 0.9em;
+              color: #ff69b4;
+              margin-top: 15px;
+              opacity: 0.8;
+            "
+          >
+            💌 Tempat untuk foto-foto kita yang paling berkesan
+          </p>
+        </section>
+
+        <!-- Section 4: Wishes -->
+        <section class="section">
+          <h2 class="subtitle">Doa Special Untukmu 🙏</h2>
+          <button class="cute-button" onclick="showWishes()">Baca Doaku</button>
+          <div id="wishes-box" class="message-box">
+            <div class="emoji-row">🌟 💖 ✨ 🎂 🎉</div>
+            <p>💝 Semoga kamu selalu sehat dan bahagia sepanjang tahun ini</p>
+            <p>🌸 Semoga semua impian kamu jadi kenyataan</p>
+            <p>🦋 Semoga kita selalu diberikan kebahagiaan bersama</p>
+            <p>🌈 Semoga hidup kamu penuh warna dan cinta</p>
+            <p>✨ Semoga kamu makin cantik, makin bahagia, dan makin sukses!</p>
+            <div class="emoji-row">💕 🎀 🌺 🦄 ⭐</div>
+          </div>
+        </section>
+
+        <!-- Section 5: Final Message -->
+        <section class="section">
+          <div class="final-card">
+            <div class="big-heart">💖</div>
+            <h2>Untuk Wanita Paling Istimewa</h2>
+            <p>Terima kasih sudah jadi bagian terbaik dalam hidupku</p>
+            <p>Terima kasih sudah bikin aku tersenyum setiap hari</p>
+            <p>Terima kasih sudah jadi dirimu yang sempurna</p>
+            <br />
+            <p style="font-size: 1.5em; color: #ff1493">
+              <strong>Aku mencintaimu lebih dari apapun! 💕</strong>
+            </p>
+            <br />
+            <div style="font-size: 2.5em">🎂 🎉 🎈 🎁 💝</div>
+            <br />
+            <p
+              style="
+                font-family: 'Pacifico', cursive;
+                font-size: 1.8em;
+                color: #ff1493;
+              "
+            >
+              Happy Birthday My Love!
+            </p>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <script>
+      // Create Floating Hearts
+      function createFloatingHearts() {
+        const heartsContainer = document.getElementById("floating-hearts");
+        const heartEmojis = ["💕", "💖", "💗", "💓", "💝"];
+
+        setInterval(() => {
+          const heart = document.createElement("div");
+          heart.className = "heart-float";
+          heart.textContent =
+            heartEmojis[Math.floor(Math.random() * heartEmojis.length)];
+          heart.style.left = Math.random() * 100 + "%";
+          heart.style.animationDuration = Math.random() * 4 + 6 + "s";
+          heartsContainer.appendChild(heart);
+
+          setTimeout(() => {
+            heart.remove();
+          }, 10000);
+        }, 800);
+      }
+
+      // Open Envelope
+      function openEnvelope() {
+        const intro = document.getElementById("intro-screen");
+        const main = document.getElementById("main-content");
+
+        intro.classList.add("hidden");
+        setTimeout(() => {
+          main.classList.add("visible");
+          createFloatingHearts();
+        }, 500);
+      }
+
+      // Show Wishes
+      function showWishes() {
+        const wishesBox = document.getElementById("wishes-box");
+        wishesBox.classList.add("visible");
+      }
+
+      // Add sparkle effect on mouse move
+      document.addEventListener("mousemove", (e) => {
+        if (Math.random() > 0.9) {
+          const sparkle = document.createElement("div");
+          sparkle.textContent = "✨";
+          sparkle.style.position = "fixed";
+          sparkle.style.left = e.clientX + "px";
+          sparkle.style.top = e.clientY + "px";
+          sparkle.style.pointerEvents = "none";
+          sparkle.style.animation = "sparkle 1s ease-out forwards";
+          sparkle.style.zIndex = "9999";
+          document.body.appendChild(sparkle);
+
+          setTimeout(() => sparkle.remove(), 1000);
+        }
+      });
+    </script>
+  </body>
+</html>
