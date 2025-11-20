@@ -322,21 +322,37 @@
 
       /* Photo Gallery Cute */
       .photo-gallery {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-        margin: 30px 0;
-        max-width: 600px;
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+      }
+
+      .full-photo {
+        width: 100%;
+        height: 100%;
+        border-radius: 20px;
+        overflow: hidden;
+      }
+
+      .full-photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
       }
 
       .photo-frame {
-        background: white;
-        padding: 15px;
-        border-radius: 20px;
-        border: 5px solid #ffb3d9;
-        box-shadow: 0 10px 30px rgba(255, 105, 180, 0.2);
-        transition: transform 0.3s;
-        cursor: pointer;
+        width: 100%;
+        aspect-ratio: 1 / 1; /* kotak, bisa dirubah */
+        border-radius: 15px;
+        overflow: hidden;
+        background: #f0f0f0;
+      }
+
+      .photo-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
       }
 
       .photo-frame:hover {
@@ -521,7 +537,7 @@
           <div class="envelope-heart">💌</div>
         </div>
       </div>
-      <div class="intro-message">Klik untuk membuka suratku! 💕</div>
+      <div class="intro-message">Klik Ini Sayanggg! 💕</div>
     </div>
 
     <!-- Main Content -->
@@ -551,10 +567,16 @@
 
           <h1 class="cute-title">Happy Birthday<br />My Princess! 👑</h1>
           <div class="kawaii-card">
-            <p>🎂 Hari ini adalah hari paling spesial...</p>
-            <p>🌸 Karena hari ini dunia mendapatkan malaikat termanis...</p>
-            <p>💖 Dan aku mendapatkan alasan untuk bahagia setiap hari...</p>
-            <p><strong>🎀 Selamat ulang tahun, cinta hidupku! 🎀</strong></p>
+            <p>🎂 Hari ini hari kelahiran ayang yang paling spesial...</p>
+            <p>
+              🌸 Karena hari ini dunia melahirkan malaikat termanis kemuka
+              bumiiiiii
+            </p>
+            <p>
+              💖 Terus tuhan ngasihin malaikat itu ke aku biar aku selalu
+              bahagia setiap hari...
+            </p>
+            <p><strong>🎀 Selamat ulang tahun cayangkuuuuuuu! 🎀</strong></p>
           </div>
         </section>
 
@@ -565,35 +587,35 @@
             <div class="reason-bubble">
               <span class="emoji">😊</span>
               <p>
-                Senyum kamu yang bikin hati aku meleleh setiap kali lihatnya
+                Senyum ayang yang bikin hati aku meleleh setiap kali lihatnya
               </p>
             </div>
             <div class="reason-bubble">
               <span class="emoji">🌟</span>
-              <p>Kamu selalu jadi cahaya di hari-hari gelapku</p>
+              <p>Ayang selalu jadi cahaya di hari-hari muramku</p>
             </div>
             <div class="reason-bubble">
               <span class="emoji">🎵</span>
-              <p>Tawa kamu yang jadi lagu favorit aku setiap hari</p>
+              <p>Tawa ayang yang jadi lagu favorit aku setiap hari</p>
             </div>
             <div class="reason-bubble">
               <span class="emoji">🤗</span>
-              <p>Pelukan hangat kamu yang bikin semuanya jadi lebih baik</p>
+              <p>Pelukan hangat ayang yang bikin semuanya jadi lebih baik</p>
             </div>
             <div class="reason-bubble">
               <span class="emoji">💝</span>
-              <p>Kebaikan hati kamu yang nggak ada duanya</p>
+              <p>Kebaikan hati ayang yang nggak ada duanya</p>
             </div>
             <div class="reason-bubble">
               <span class="emoji">✨</span>
-              <p>Kamu bikin aku pengen jadi orang yang lebih baik</p>
+              <p>Ayang tu bikin aku pengen jadi orang yang lebih baik</p>
             </div>
           </div>
         </section>
 
         <!-- Section 3: Memories -->
         <section class="section">
-          <h2 class="subtitle">Kenangan Manis Kita 📷</h2>
+          <h2 class="subtitle">Kenangan Manis Kita Berdua Sayang📷</h2>
           <p
             style="
               font-size: 1.2em;
@@ -602,45 +624,37 @@
               font-weight: 600;
             "
           >
-            Setiap momen bersamamu adalah kenangan terindah 💕
+            Foto lucu kita ayang, dimulai dari first date sampai sekarang 💕
           </p>
           <div class="photo-gallery">
-            <div class="photo-frame">
-              <div class="photo-content">🌈</div>
+            <div class="photo-frame full-photo">
+              <img src="image/love1.jpg" alt="Foto 1" />
             </div>
-            <div class="photo-frame">
-              <div class="photo-content">💑</div>
+            <div class="photo-frame full-photo">
+              <img src="image/love2.jpg" alt="Foto 2" />
             </div>
-            <div class="photo-frame">
-              <div class="photo-content">🎡</div>
+            <div class="photo-frame full-photo">
+              <img src="image/love3.jpg" alt="Foto 3" />
             </div>
-            <div class="photo-frame">
-              <div class="photo-content">🌺</div>
+            <div class="photo-frame full-photo">
+              <img src="image/love4.jpg" alt="Foto 4" />
             </div>
           </div>
-          <p
-            style="
-              font-size: 0.9em;
-              color: #ff69b4;
-              margin-top: 15px;
-              opacity: 0.8;
-            "
-          >
-            💌 Tempat untuk foto-foto kita yang paling berkesan
-          </p>
         </section>
 
         <!-- Section 4: Wishes -->
         <section class="section">
-          <h2 class="subtitle">Doa Special Untukmu 🙏</h2>
+          <h2 class="subtitle">Doa Special Untuk Cintaku 🙏</h2>
           <button class="cute-button" onclick="showWishes()">Baca Doaku</button>
           <div id="wishes-box" class="message-box">
             <div class="emoji-row">🌟 💖 ✨ 🎂 🎉</div>
             <p>💝 Semoga kamu selalu sehat dan bahagia sepanjang tahun ini</p>
-            <p>🌸 Semoga semua impian kamu jadi kenyataan</p>
+            <p>🌸 Semoga semua impian kamu jadi kenyataan AMINNNN</p>
             <p>🦋 Semoga kita selalu diberikan kebahagiaan bersama</p>
             <p>🌈 Semoga hidup kamu penuh warna dan cinta</p>
-            <p>✨ Semoga kamu makin cantik, makin bahagia, dan makin sukses!</p>
+            <p>
+              ✨ Semoga ayang makin cantik, makin bahagia, dan makin sukses!
+            </p>
             <div class="emoji-row">💕 🎀 🌺 🦄 ⭐</div>
           </div>
         </section>
@@ -655,7 +669,9 @@
             <p>Terima kasih sudah jadi dirimu yang sempurna</p>
             <br />
             <p style="font-size: 1.5em; color: #ff1493">
-              <strong>Aku mencintaimu lebih dari apapun! 💕</strong>
+              <strong
+                >Aku mencintaimu lebih dari apa yang kamu tau sayang! 💕</strong
+              >
             </p>
             <br />
             <div style="font-size: 2.5em">🎂 🎉 🎈 🎁 💝</div>
@@ -699,11 +715,14 @@
       function openEnvelope() {
         const intro = document.getElementById("intro-screen");
         const main = document.getElementById("main-content");
+        const music = document.getElementById("bg-music");
 
         intro.classList.add("hidden");
+
         setTimeout(() => {
           main.classList.add("visible");
           createFloatingHearts();
+          music.play();
         }, 500);
       }
 
@@ -731,4 +750,7 @@
       });
     </script>
   </body>
+  <audio id="bg-music" autoplay loop>
+    <source src="music/music.mp3" type="audio/mp3" />
+  </audio>
 </html>
